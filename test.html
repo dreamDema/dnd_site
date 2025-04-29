@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Мир | Врата в фэнтези</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c9?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .medieval-font {
+            font-family: 'MedievalSharp', cursive;
+        }
+        
+        .parchment-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7c8;
+        }
+        
+        .dice-roll {
+            animation: roll 0.5s ease-out;
+        }
+        
+        @keyframes roll {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #d4a76a;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-black bg-opacity-80 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-dragon text-3xl text-amber-600"></i>
+                <h1 class="medieval-font text-2xl md:text-3xl font-bold">D&D Мир</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-white hover:text-amber-400 transition">Главная</a>
+                <a href="#rules" class="nav-link text-white hover:text-amber-400 transition">Правила</a>
+                <a href="#characters" class="nav-link text-white hover:text-amber-400 transition">Персонажи</a>
+                <a href="#dice" class="nav-link text-white hover:text-amber-400 transition">Кости</a>
+                <a href="#adventures" class="nav-link text-white hover:text-amber-400 transition">Приключения</a>
+            </nav>
+            
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-90 py-4 px-4">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-white hover:text-amber-400 transition">Главная</a>
+                <a href="#rules" class="text-white hover:text-amber-400 transition">Правила</a>
+                <a href="#characters" class="text-white hover:text-amber-400 transition">Персонажи</a>
+                <a href="#dice" class="text-white hover:text-amber-400 transition">Кости</a>
+                <a href="#adventures" class="text-white hover:text-amber-400 transition">Приключения</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative py-20 md:py-32 px-4 text-center">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container mx-auto relative z-10">
+            <h1 class="medieval-font text-4xl md:text-6xl font-bold text-amber-400 mb-6">Добро пожаловать в мир D&D</h1>
+            <p class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">Откройте для себя магию, тайны и приключения в самой популярной настольной ролевой игре</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
+                    Начать игру
+                </button>
+                <button class="bg-transparent border-2 border-amber-400 hover:bg-amber-400 hover:bg-opacity-20 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
+                    Узнать больше
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="py-16 px-4 parchment-bg">
+        <div class="container mx-auto">
+            <h2 class="medieval-font text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Основные правила</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Rule 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
+                    <div class="bg-gray-800 p-4">
+                        <i class="fas fa-dice-d20 text-4xl text-amber-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Бросок кубика</h3>
+                        <p class="text-gray-700">Используйте различные кубики (d4, d6, d8, d10, d12, d20) для определения успеха действий персонажа.</p>
+                    </div>
+                </div>
+                
+                <!-- Rule 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
+                    <div class="bg-gray-800 p-4">
+                        <i class="fas fa-shield-alt text-4xl text-amber-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Классы персонажей</h3>
+                        <p class="text-gray-700">Выберите класс: воин, маг, жрец, плут и другие. Каждый имеет уникальные способности.</p>
+                    </div>
+                </div>
+                
+                <!-- Rule 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
+                    <div class="bg-gray-800 p-4">
+                        <i class="fas fa-book-dead text-4xl text-amber-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Мастер игры</h3>
+                        <p class="text-gray-700">Мастер описывает мир, управляет NPC и монстрами, решает результаты действий игроков.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105 flex items-center mx-auto">
+                    <i class="fas fa-book mr-2"></i> Полные правила
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="py-16 px-4 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="medieval-font text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Создайте своего персонажа</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Warrior -->
+                <div class="character-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-red-800 flex items-center justify-center">
+                        <i class="fas fa-sword text-8xl text-white opacity-30"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Воин</h3>
+                        <p class="text-gray-600 mb-4">Мастер оружия и доспехов, специалист ближнего боя.</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span><i class="fas fa-heart mr-1 text-red-500"></i> 12 HP</span>
+                            <span><i class="fas fa-bolt mr-1 text-yellow-500"></i> Сила</span>
+                            <span><i class="fas fa-shield mr-1 text-blue-500"></i> 18 AC</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wizard -->
+                <div class="character-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-blue-800 flex items-center justify-center">
+                        <i class="fas fa-hat-wizard text-8xl text-white opacity-30"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Маг</h3>
+                        <p class="text-gray-600 mb-4">Изучает магию, использует заклинания для решения проблем.</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span><i class="fas fa-heart mr-1 text-red-500"></i> 6 HP</span>
+                            <span><i class="fas fa-bolt mr-1 text-yellow-500"></i> Интеллект</span>
+                            <span><i class="fas fa-shield mr-1 text-blue-500"></i> 12 AC</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rogue -->
+                <div class="character-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-800 flex items-center justify-center">
+                        <i class="fas fa-user-secret text-8xl text-white opacity-30"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Плут</h3>
+                        <p class="text-gray-600 mb-4">Мастер скрытности, ловкости и неожиданных атак.</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span><i class="fas fa-heart mr-1 text-red-500"></i> 8 HP</span>
+                            <span><i class="fas fa-bolt mr-1 text-yellow-500"></i> Ловкость</span>
+                            <span><i class="fas fa-shield mr-1 text-blue-500"></i> 15 AC</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cleric -->
+                <div class="character-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-purple-800 flex items-center justify-center">
+                        <i class="fas fa-pray text-8xl text-white opacity-30"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Жрец</h3>
+                        <p class="text-gray-600 mb-4">Черпает силу от божества, лечит союзников и сражает нежить.</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span><i class="fas fa-heart mr-1 text-red-500"></i> 8 HP</span>
+                            <span><i class="fas fa-bolt mr-1 text-yellow-500"></i> Мудрость</span>
+                            <span><i class="fas fa-shield mr-1 text-blue-500"></i> 16 AC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button id="generate-character" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
+                    <i class="fas fa-random mr-2"></i> Сгенерировать персонажа
+                </button>
+                <div id="character-result" class="mt-4 hidden bg-white p-4 rounded-lg shadow-md max-w-md mx-auto">
+                    <h3 class="text-xl font-bold mb-2" id="char-name">Имя: Гаррик</h3>
+                    <p class="mb-1"><span class="font-semibold" id="char-race">Раса:</span> Человек</p>
+                    <p class="mb-1"><span class="font-semibold" id="char-class">Класс:</span> Воин</p>
+                    <p class="mb-1"><span class="font-semibold" id="char-level">Уровень:</span> 1</p>
+                    <p class="mb-1"><span class="font-semibold" id="char-stats">Характеристики:</span> Сил 16, Лов 12, Тел 14, Инт 10, Мдр 8, Хар 13</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dice Roller Section -->
+    <section id="dice" class="py-16 px-4 bg-gray-800 text-white">
+        <div class="container mx-auto">
+            <h2 class="medieval-font text-3xl md:text-4xl font-bold text-center mb-12">Бросок кубиков</h2>
+            
+            <div class="max-w-2xl mx-auto bg-gray-900 bg-opacity-70 rounded-xl p-8 shadow-xl">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <button class="dice-btn bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition" data-sides="4">
+                        <i class="fas fa-dice-d4 mr-2"></i> d4
+                    </button>
+                    <button class="dice-btn bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition" data-sides="6">
+                        <i class="fas fa-dice mr-2"></i> d6
+                    </button>
+                    <button class="dice-btn bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition" data-sides="8">
+                        <i class="fas fa-dice-d6 mr-2"></i> d8
+                    </button>
+                    <button class="dice-btn bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition" data-sides="10">
+                        <i class="fas fa-dice-d10 mr-2"></i> d10
+                    </button>
+                    <button class="dice-btn bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition" data-sides="12">
+                        <i class="fas fa-dice-d12 mr-2"></i> d12
+                    </button>
+                    <button class="dice-btn bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition" data-sides="20">
+                        <i class="fas fa-dice-d20 mr-2"></i> d20
+                    </button>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+                    <div class="w-full md:w-1/2 mb-4 md:mb-0 md:pr-4">
+                        <label for="custom-dice" class="block mb-2 font-semibold">Свой кубик:</label>
+                        <div class="flex">
+                            <input type="number" id="custom-dice" min="2" max="100" value="20" class="flex-grow px-4 py-2 rounded-l-lg text-gray-900">
+                            <button id="roll-custom" class="bg-amber-600 hover:bg-amber-700 px-4 py-2 rounded-r-lg transition">
+                                Бросить
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2 md:pl-4">
+                        <label for="modifier" class="block mb-2 font-semibold">Модификатор:</label>
+                        <div class="flex">
+                            <input type="number" id="modifier" value="0" class="flex-grow px-4 py-2 rounded-lg text-gray-900">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-700 rounded-lg p-6 text-center">
+                    <div class="text-5xl font-bold mb-2" id="dice-result">
+                        <i class="fas fa-dice-d20 text-amber-400"></i>
+                    </div>
+                    <div class="text-gray-300" id="dice-history"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adventures Section -->
+    <section id="adventures" class="py-16 px-4 parchment-bg">
+        <div class="container mx-auto">
+            <h2 class="medieval-font text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Готовые приключения</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Adventure 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-[1.02]">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c9?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-amber-200 text-amber-800 rounded-full text-xs font-semibold mb-2">Для начинающих</span>
+                        <h3 class="text-xl font-bold mb-2">Проклятие Страда</h3>
+                        <p class="text-gray-600 mb-4">Группа искателей приключений исследует загадочное проклятие, поразившее деревню.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fas fa-users mr-1"></i> 3-5 игроков</span>
+                            <span class="text-sm text-gray-500"><i class="fas fa-hourglass-half mr-1"></i> 4-6 часов</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Adventure 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-[1.02]">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dbe36758fd2f?q=80&w=2071&auto=format&fit=crop');"></div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-red-200 text-red-800 rounded-full text-xs font-semibold mb-2">Сложное</span>
+                        <h3 class="text-xl font-bold mb-2">Гробница Ужаса</h3>
+                        <p class="text-gray-600 mb-4">Легендарная гробница скрывает несметные сокровища и смертельные ловушки.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fas fa-users mr-1"></i> 4-6 игроков</span>
+                            <span class="text-sm text-gray-500"><i class="fas fa-hourglass-half mr-1"></i> 8-12 часов</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Adventure 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-[1.02]">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=1974&auto=format&fit=crop');"></div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-xs font-semibold mb-2">Для мастеров</span>
+                        <h3 class="text-xl font-bold mb-2">Королевство Драконов</h3>
+                        <p class="text-gray-600 mb-4">Политические интриги и древние драконы в эпической кампании.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fas fa-users mr-1"></i> 4-6 игроков</span>
+                            <span class="text-sm text-gray-500"><i class="fas fa-hourglass-half mr-1"></i> 50+ часов</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
+                    <i class="fas fa-scroll mr-2"></i> Все приключения
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 px-4 bg-gray-900 text-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-gray-800 rounded-xl p-8 shadow-lg">
+                <div class="text-center mb-6">
+                    <i class="fas fa-envelope-open-text text-4xl text-amber-400 mb-4"></i>
+                    <h2 class="medieval-font text-2xl md:text-3xl font-bold mb-2">Подпишитесь на рассылку</h2>
+                    <p class="text-gray-300">Получайте новые приключения, советы по игре и эксклюзивные материалы</p>
+                </div>
+                
+                <form class="flex flex-col md:flex-row gap-4">
+                    <input type="email" placeholder="Ваш email" class="flex-grow px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                    <button type="submit" class="bg-amber-600 hover:bg-amber-700 px-6 py-3 rounded-lg font-semibold transition">
+                        Подписаться
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-dragon text-2xl text-amber-600"></i>
+                        <h3 class="medieval-font text-xl font-bold">D&D Мир</h3>
+                    </div>
+                    <p class="text-gray-400">Ваш проводник в мир Dungeons & Dragons. Играйте, создавайте, вдохновляйтесь.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ресурсы</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition">Бесплатные материалы</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition">Генераторы</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition">Карты</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition">Статьи</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Сообщество</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition">Форумы</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition">Найти группу</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition">События</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition">Блог</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Контакты</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition text-xl"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition text-xl"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition text-xl"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition text-xl"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="text-gray-400"><i class="fas fa-envelope mr-2"></i> contact@dndworld.ru</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 D&D Мир. Все права защищены. Dungeons & Dragons является товарным знаком Wizards of the Coast.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Dice roller functionality
+        const diceButtons = document.querySelectorAll('.dice-btn');
+        const customDiceBtn = document.getElementById('roll-custom');
+        const diceResult = document.getElementById('dice-result');
+        const diceHistory = document.getElementById('dice-history');
+        const modifierInput = document.getElementById('modifier');
+        
+        function rollDice(sides) {
+            const modifier = parseInt(modifierInput.value) || 0;
+            const roll = Math.floor(Math.random() * sides) + 1;
+            const total = roll + modifier;
+            
+            // Add dice roll animation
+            diceResult.classList.add('dice-roll');
+            setTimeout(() => {
+                diceResult.classList.remove('dice-roll');
+            }, 500);
+            
+            // Display result
+            diceResult.innerHTML = total;
+            
+            // Add to history
+            const historyItem = document.createElement('div');
+            historyItem.className = 'mb-1';
+            
+            let historyText = `d${sides}: ${roll}`;
+            if (modifier !== 0) {
+                historyText += ` (${modifier > 0 ? '+' : ''}${modifier}) = ${total}`;
+            }
+            
+            historyItem.textContent = historyText;
+            
+            // Prepend to keep newest at top
+            if (diceHistory.children.length > 0) {
+                diceHistory.insertBefore(historyItem, diceHistory.firstChild);
+            } else {
+                diceHistory.appendChild(historyItem);
+            }
+            
+            // Limit history to 5 items
+            if (diceHistory.children.length > 5) {
+                diceHistory.removeChild(diceHistory.lastChild);
+            }
+        }
+        
+        diceButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const sides = parseInt(this.getAttribute('data-sides'));
+                rollDice(sides);
+            });
+        });
+        
+        customDiceBtn.addEventListener('click', function() {
+            const customDiceInput = document.getElementById('custom-dice');
+            let sides = parseInt(customDiceInput.value);
+            
+            // Validate input
+            if (isNaN(sides) || sides < 2) {
+                sides = 2;
+                customDiceInput.value = 2;
+            } else if (sides > 100) {
+                sides = 100;
+                customDiceInput.value = 100;
+            }
+            
+            rollDice(sides);
+        });
+
+        // Character generator
+        const generateBtn = document.getElementById('generate-character');
+        const characterResult = document.getElementById('character-result');
+        
+        const names = ['Гаррик', 'Элринд', 'Торгрим', 'Морвин', 'Сильвана', 'Дурин', 'Аластар', 'Зириэль'];
+        const races = ['Человек', 'Эльф', 'Дварф', 'Полурослик', 'Гном', 'Полуэльф', 'Полуорк', 'Тифлинг'];
+        const classes = ['Воин', 'Маг', 'Жрец', 'Плут', 'Варвар', 'Паладин', 'Следопыт', 'Друид', 'Монах', 'Чародей'];
+        
+        generateBtn.addEventListener('click', function() {
+            // Generate random character
+            const name = names[Math.floor(Math.random() * names.length)];
+            const race = races[Math.floor(Math.random() * races.length)];
+            const charClass = classes[Math.floor(Math.random() * classes.length)];
+            const level = Math.floor(Math.random() * 10) + 1;
+            
+            // Generate random stats (3d6 method)
+            const stats = [];
+            for (let i = 0; i < 6; i++) {
+                let roll = 0;
+                let min = 6;
+                
+                for (let j = 0; j < 3; j++) {
+                    const die = Math.floor(Math.random() * 6) + 1;
+                    roll += die;
+                    if (die < min) min = die;
+                }
+                
+                // Drop lowest die (4d6 drop lowest)
+                // roll -= min;
+                
+                stats.push(roll);
+            }
+            
+            // Update DOM
+            document.getElementById('char-name').textContent = `Имя: ${name}`;
+            document.getElementById('char-race').textContent = `Раса: ${race}`;
+            document.getElementById('char-class').textContent = `Класс: ${charClass}`;
+            document.getElementById('char-level').textContent = `Уровень: ${level}`;
+            document.getElementById('char-stats').textContent = `Характеристики: Сил ${stats[0]}, Лов ${stats[1]}, Тел ${stats[2]}, Инт ${stats[3]}, Мдр ${stats[4]}, Хар ${stats[5]}`;
+            
+            // Show result
+            characterResult.classList.remove('hidden');
+        });
+
+        // Add animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
