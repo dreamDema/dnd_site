@@ -1,14 +1,53 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="icon" href="{% static 'img/dnd_online/ico-dragon.svg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/dnd_online/template.css' %}" type="text/css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />
+    
 </head>
-<body>
-    {% block content %}
-    {% endblock %}
+<body class="bg_image">
+    <header class="header">
+        <div>
+            <a class="flex_line bold text" href=""><img class="ico" src="{% static 'img/dnd_online/ico-dragon.svg' %}" alt="ico"><p style="font-family: MedievalSharp" class="all_hover size32"> D&D Байки у костра</p></a>
+        </div>
+        <div>
+            <ul class="flex_line gap20">
+                <a class="text size22 all_hover" href="#">Ближайшая встреча</a>
+                <a class="text size22 all_hover" href="#">Правила</a>
+                <a class="text size22 all_hover" href="#">Приключения</a>
+                <a href="#"><img class="profile_ico" src="{% static 'img/dnd_online/profile.png' %}" alt=""></a>
+            </ul>
+        </div>
+    </header>
+
+    <main >
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer_div">
+        <div class="flex_line block_footer_top text">
+            <div class="block_footer">
+                <h4 class="" style="font-family: MedievalSharp">D&D Байки у костра</h4>
+                <p class="padding_top">Ваш проводник в мир Dungeons & Dragons. Играйте, создавайте, вдохновляйтесь.</p>
+            </div>
+            <div class="block_footer">
+                <h4 class="" style="font-family: MedievalSharp">Контакты</h4>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="padding">
+                <p class="text_right">© 2023 D&D Мир. Все права защищены. Dungeons & Dragons является товарным знаком Wizards of the Coast.</p>
+            </div>
+        </div>
+
+    </footer>
 </body>
 </html>
