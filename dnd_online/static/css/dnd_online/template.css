@@ -43,11 +43,15 @@
 .size22 {font-size: 22px;}
 
 .flex_line {display: flex; justify-content: space-around; align-items: center; gap: 10px;}
+.flex_line_top {display: flex; justify-content: space-around;}
 
 .gap20 {gap: 20px;}
 
 .padding_top {padding-top: 10px;}
+.padding_right {padding-right: 15px;}
 
+.ico {height: 32px; transition: .5s ease;}
+.img_hover:hover {transform: scale(1.2);}
 /* ----------------------header------------------ */
 .header {
     position: relative;
@@ -65,7 +69,7 @@
     font-size: 25px;
 }
 
-.ico {
+.ico_logo {
     height: 50px;
 }
 
@@ -73,16 +77,8 @@
     width: 28px;
     transition: .5s ease;
 }
-.profile_ico:hover {transform: scale(1.2);}
-/* ----------------------END header------------------ */
 
-.bg_block_one {
-    width: 100%;
-    height: auto;
-    margin-top: 100px;
-    background-color: rgb(114, 114, 114, 0.7);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-}
+/* ----------------------END header------------------ */
 
 
 /* ----------------------footer------------------ */
@@ -98,9 +94,9 @@
 .block_footer {
     width: 15%;
     padding: 15px;
-    border: 1px solid rgb(114, 114, 114, 0.7);
+    /* border: 1px solid rgb(114, 114, 114, 0.7);
     border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5); */
 }
 
 .footer_div .padding {padding: 0 10%;}

@@ -1,0 +1,66 @@
+.padding_top_bot {padding: 7% 0 3% 0;}
+
+.flex_vert {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+/* --------------------greeting------------------------- */
+.bg_block_greeting {
+    width: 100%;
+    height: auto;
+    background-color: rgb(114, 114, 114, 0.9);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.block_greeting {
+    width: 70%;
+}
+
+.text_h {
+    font-size: 60px;
+    color: rgb(251 191 36);
+    text-align: center;
+}
+.text_p {
+    margin: 0 15%;
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+}
+.GS_container {padding-top: 25px;}
+.GS_button {
+    width: 35%;
+    text-align: center;
+    font-size: 28px;
+    color: white;
+    background-color: rgb(217 119 6);
+    padding: 12px 32px;
+    border: 3px black;
+    border-radius: 10px;
+    transition: .5s ease;
+}
+.GS_button:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 30px rgb(36, 36, 36);
+}
+/* --------------------END greeting------------------------ */
+
+/* --------------------stream------------------------- */
+.bg_block_stream {
+    width: 100%;
+    height: auto;
+    background-color: rgba(249, 209, 124, 0.7);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.block_stream {
+    padding: 5% 0;
+}
+.text_s_h {
+    font-size: 60px;
+    color: rgb(30, 30, 30);
+    text-align: center;
+}
