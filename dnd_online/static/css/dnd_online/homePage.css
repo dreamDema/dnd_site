@@ -42,8 +42,9 @@
     transition: .5s ease;
 }
 .GS_button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 2px 2px 30px rgb(36, 36, 36);
+    background-color: rgb(173, 0, 0);
 }
 /* --------------------END greeting------------------------ */
 
@@ -63,4 +64,84 @@
     font-size: 60px;
     color: rgb(30, 30, 30);
     text-align: center;
+}
+/* --------------------END stream------------------------- */
+
+/* --------------------adventure------------------------- */
+.adventure_block {
+    margin: 2.5% 0;
+    /* padding: 20px; */
+    /* gap: 20px; */
+    width: 20%;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    overflow: hidden;
+    border: 2px solid rgb(19, 19, 19);
+    border-radius: 10px;
+    transition: 0.9s ease;
+}
+.adventure_block_img {
+    height: 40%;
+    overflow: hidden;
+    transition: .9s;
+}
+.adventure_block:hover {
+    height: 600px;
+    transform: scale(1.05);
+}
+.adventure_block:hover .adventure_block_img {
+    height: 100%;
+}
+.adventure_block_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+    overflow: hidden;
+    color: white;
+}
+.adventure_img {
+    width: 100%;
+}
+.adventure_footer {
+    width: 100%;
+    font-size: 18px;
+}
+.adventure_footer_left {
+    float: left;
+    padding: 5px 20px;
+    background-color: rgb(173, 0, 0);
+    border-radius: 10px;
+    color: aliceblue;
+    font-weight: bold;
+}
+.adventure_footer_right {
+    float: right;
+    padding: 5px 20px;
+    background-color: green;
+    border-radius: 10px;
+    color: aliceblue;
+    font-weight: bold;
+}
+.adventure_footer_about {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid rgb(114, 114, 114, 0.7);
+}
+.adventure_footer_about_button {
+    text-decoration: none;
+    font-size: 18px;
+    color: aliceblue;
+    padding: 8px 40px;
+    margin: 10px 0;
+    background-color: rgb(173, 0, 0);
+    border-radius: 10px;
 }

@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from dnd_online.models import Adventures
+
+
+admin.site.register(Adventures)
