@@ -15,9 +15,12 @@
 </div>
 
 
-<div class="bg_block_stream flex_vert flex_vert" style="font-family: MedievalSharp">
+<div class="bg_block_stream" style="font-family: MedievalSharp">
     <div class="block_stream">
-        <h1 class="text_s_h"><em>Ближайшая трансляция</em></h1>
+        <h1 class="text_s_h"><em>Ближайшая игра</em></h1>
+        <div class="timmed">
+            <img class="adventure_img" src="media/others/orc_stole.jpeg" alt="orcs">
+        </div>
     </div>
 </div>
 
@@ -32,7 +35,7 @@
         </div>
         <div class="adventure_block_content">
             <h2>{{ adventure.name }}</h2>
-            <p>{{ adventure.content|truncatewords:13 }}</p>
+            <p class="Hoverflow">{{ adventure.content|truncatewords:13 }}</p>
             <div class="adventure_footer">
                 <p class="adventure_footer_left">{{ adventure.type_adventure }}</p>
                 <p class="adventure_footer_right">{{ adventure.status }}</p>
@@ -44,10 +47,6 @@
     </div>
 
 
-
-    <!-- <h2>{{ adventure.name }}</h2>
-    <img class="adventure_img" src="{{ adventure.image.url }}" alt="{{ adventure.name }}">
-    <div class="adventure_footer"><p class="adventure_footer_left">{{ adventure.type_adventure }}</p><p class="adventure_footer_right">{{ adventure.status }}</p></div> -->
 
     {% endfor %}
 
